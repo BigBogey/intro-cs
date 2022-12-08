@@ -17,13 +17,13 @@ void draw() {
   rect(width / 3, 100, 100, 50); // rock
   fill(255);
   if (userChoice == "Paper") {
-    fill(255, 0, 0);
+    fill(0, 255, 0);
   }
   rect(width / 3 + 150, 100, 100, 50); // paper
   fill(255);
   
   if (userChoice == "Scissors") {
-    fill(225, 0, 0);
+    fill(0, 0, 255);
   }
   rect(width / 3 + 300, 100, 100, 50); // scissors
   fill(0);
@@ -41,6 +41,24 @@ void draw() {
     
   text("Computer:", width / 2, 400);
   text(computerChoice, width / 2, 440);
+  
+  if ((userChoice == "Rock" && computerChoice == "Paper") ||
+  (userChoice == "Paper" && computerChoice == "Scissors") ||
+  (userChoice == "Scissors" && computerChoice == "Rock")) {
+    text("You Lose!", width / 2, 275);
+  }
+  
+  if ((userChoice == "Rock" && computerChoice == "Scissors") ||
+  (userChoice == "Paper" && computerChoice == "Rock") ||
+  (userChoice == "Scissors" && computerChoice == "Paper")) {
+    text("You Win!", width / 2, 275);
+  }
+  
+  if ((userChoice == "Rock" && computerChoice == "Rock") ||
+  (userChoice == "Paper" && computerChoice == "Paper") ||
+  (userChoice == "Scissors" && computerChoice == "Scissors")) {
+    text("Draw!", width / 2, 275);
+  }
 }
 
 void mousePressed() {
